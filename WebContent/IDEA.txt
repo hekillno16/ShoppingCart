@@ -1,0 +1,44 @@
+the techstack going to be used:
+
+- J2ee: Servlet, JSP
+- Servlet: JDBC-DAO, Ajax
+- JSP: CustomTAG, useBean
+- Extra: ConnectionPool, homepage footer include in jsp
+
+Fronend
+- Bootstrap, Jquery Filp
+
+Requirements:
+ 2. Create a Web Application for Shopping Cart
+ Environment: JSP, JDBC, Core Java, Servlets, HTML, CSS3, JavaScript / jQuery
+
+========================================================
+5/9 
+加入admin 实现homework1 by hibernate
+
+
+========================================================
+JDBC Design:
+
+ Product
+ id int
+ name string
+ price float
+
+ OrderItem
+ id int
+ pid int
+ oid int
+ number
+
+ Order
+ id
+ uid
+ createDate
+
+ User
+ id
+ name
+ password
+
+ Product 1:n OrderItem n:1 Order n:1 User
