@@ -13,4 +13,9 @@ A shopping cart website using Java Web tech stack(Servlet, JSP, Hibernate, tomca
     - Customer: id:tom, password:tom123
 
 2. Admin page: you can do CURD operation on Product table.
+
 3. Customer page: you can add item to cart, then check out in cart's page.
+    - List product page: list all products and you can enter the number you wanna buy in here.
+    - My Cart page: 
+        - the items you added to your shopping cart. 
+        - Then you can click checkout to create the order.
