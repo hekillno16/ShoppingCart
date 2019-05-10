@@ -52,7 +52,7 @@ public class OrderItemDeleteServlet extends HttpServlet {
 			}
 		}
 		
-		request.getSession().setAttribute("oilst", oilst);
+//		request.getSession().setAttribute("oilst", oilst);
 		
 		response.sendRedirect("listOrderItem");
 	}

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Utility {
+public class JdbcUtility {
 	
 	public static void closeAll(Connection con) {
 		ConnectionPool.getInstance().returnConnection(con);

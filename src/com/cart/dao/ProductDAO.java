@@ -8,30 +8,53 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import com.cart.model.Product;
 import com.cart.util.ConnectionPool;
-import com.cart.util.Utility;
+import com.cart.util.HibernateUtil;
+import com.cart.util.JdbcUtility;
 
 public class ProductDAO implements IDao<Product> {	
 	
 	private final String TABLE_NAME = "product";
 
 	@Override
-	public void add(Product t) {
-		// TODO Auto-generated method stub
-
+	public void add(Product p) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();		
+		
+		session.save(p);
+		
+		transaction.commit();
+		session.close();		
 	}
 
 	@Override
-	public void update(Product t) {
-		// TODO Auto-generated method stub
-
+	public void update(Product p) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Product target = (Product) session.get(Product.class, p.getId());		
+		target.setName(p.getName());
+		target.setPrice(p.getPrice());
+		session.update(target);
+		
+		transaction.commit();
+		session.close();		
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Product target = (Product) session.get(Product.class, id);		
+		session.delete(target);
+		
+		transaction.commit();
+		session.close();
 	}
 
 	@Override
@@ -54,7 +77,7 @@ public class ProductDAO implements IDao<Product> {
 				product.setPrice(rs.getFloat("price"));
 			}
 			
-			Utility.closeAll(con, ps, rs);
+			JdbcUtility.closeAll(con, ps, rs);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,7 +118,7 @@ public class ProductDAO implements IDao<Product> {
 				result.add(pd);
 			}
 			
-			Utility.closeAll(con, ps, rs);
+			JdbcUtility.closeAll(con, ps, rs);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

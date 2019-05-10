@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cart.dao.ProductDAO;
 import com.cart.model.Product;
+import com.cart.model.User;
 
 /**
  * Servlet implementation class ProductListServlet
@@ -30,12 +31,19 @@ public class ProductListServlet extends HttpServlet {
     }
 	
 	@Override
-	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		List<Product> products = new ProductDAO().list();
+	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
+		List<Product> products = new ProductDAO().list();
 		req.setAttribute("products", products);
 		
-		req.getRequestDispatcher("listProducts.jsp").forward(req, res);
+		User user = (User) req.getSession().getAttribute("user");
+		String name = user.getName();
+		String password = user.getPassword();
+				
+		if (name.equals("admin") && password.equals("admin")) 			
+			req.getRequestDispatcher("listProducts_admin.jsp").forward(req, res);
+		else
+			req.getRequestDispatcher("listProducts.jsp").forward(req, res);
 	}
 	
 }

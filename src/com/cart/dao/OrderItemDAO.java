@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.cart.model.OrderItem;
 import com.cart.util.ConnectionPool;
-import com.cart.util.Utility;
+import com.cart.util.JdbcUtility;
 
 public class OrderItemDAO implements IDao<OrderItem> {
 
@@ -29,7 +29,7 @@ public class OrderItemDAO implements IDao<OrderItem> {
 			
 			ps.execute();			
 			
-			Utility.closeAll(con, ps);
+			JdbcUtility.closeAll(con, ps);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

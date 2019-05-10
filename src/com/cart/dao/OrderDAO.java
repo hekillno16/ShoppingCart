@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.cart.model.Order;
 import com.cart.util.ConnectionPool;
-import com.cart.util.Utility;
+import com.cart.util.JdbcUtility;
 
 public class OrderDAO implements IDao<Order> {
 	
@@ -33,7 +33,7 @@ public class OrderDAO implements IDao<Order> {
 				order.setId(id);
 			}			
 			
-			Utility.closeAll(con, ps, rs);
+			JdbcUtility.closeAll(con, ps, rs);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

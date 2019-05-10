@@ -33,7 +33,7 @@ public class UserLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
-
+				
 		User user = new UserDAO().get(name, password);
 
 		if (user != null) {
