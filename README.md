@@ -4,6 +4,9 @@ A shopping cart website using Java Web tech stack(Servlet, JSP, Hibernate, tomca
 # How to Use:
 1. import in Eclipse.
 2. Run as -> Run on Server
+3. create a database on mysql named "cart", run the 3 sql files in /WebContent/sql_source folder.
+	(ps: most of this project using pure JDBC at this time, 
+		 so no auto created table by hibernate and you need to do it manually). 
 
 # Introduction of website:
 1. Home page is a Login page.
