@@ -1,11 +1,11 @@
 # ShoppingCart
-A shopping cart website using Java Web tach stack(Servlet, JSP, Hibernate, tomcat, to be continued...)
+A shopping cart website using Java Web tech stack(Servlet, JSP, Hibernate, tomcat, to be continued...)
 
-How to Use:
+# How to Use:
 1. import in Eclipse.
 2. Run as -> Run on Server
 
-Introduction of website:
+# Introduction of website:
 1. Home page is a Login page.
 There're two type of users: administrator and normal customer. 
 Administrator: id:admin, password:admin
